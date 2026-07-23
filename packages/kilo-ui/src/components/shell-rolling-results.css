@@ -1,0 +1,173 @@
+[data-component="shell-rolling-results"] {
+  --shell-border: #e5e5e5;
+  --shell-bg: #ffffff;
+  --shell-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+
+  border: 1px solid var(--shell-border);
+  border-radius: var(--radius-md);
+  background: var(--shell-bg);
+  box-shadow: var(--shell-shadow);
+  overflow: hidden;
+}
+
+[data-slot="shell-rolling-header"] {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--shell-border);
+  background: #fafafa;
+  color: var(--text-weak);
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-medium);
+  user-select: none;
+}
+
+[data-slot="shell-rolling-title"] {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-base);
+  font-weight: var(--font-weight-medium);
+}
+
+[data-slot="shell-rolling-subtitle"] {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--text-weak);
+}
+
+[data-slot="shell-rolling-actions"] {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+}
+
+[data-slot="shell-rolling-arrow"] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  transition: transform 0.15s ease;
+}
+
+[data-slot="shell-rolling-arrow"][data-open="true"] {
+  transform: rotate(180deg);
+}
+
+[data-slot="shell-rolling-preview"] {
+  padding: 0;
+  background: var(--shell-bg);
+}
+
+[data-component="shell-rolling-command"] {
+  padding: 10px 12px;
+  background: #f5f5f5;
+  border-bottom: 1px solid var(--shell-border);
+  font-family: var(--font-family-mono);
+  font-feature-settings: var(--font-family-mono--font-feature-settings);
+  font-size: var(--kilo-font-size-12);
+  line-height: var(--line-height-large);
+  color: var(--text-base);
+}
+
+[data-slot="shell-rolling-prompt"],
+[data-slot="shell-expanded-prompt"] {
+  color: var(--text-weak);
+  user-select: none;
+  margin-right: 4px;
+}
+
+[data-component="shell-rolling-row"] {
+  padding: 2px 12px;
+}
+
+[data-component="shell-rolling-row"]:last-child {
+  padding-bottom: 8px;
+}
+
+[data-slot="shell-rolling-text"] {
+  font-family: var(--font-family-mono);
+  font-feature-settings: var(--font-family-mono--font-feature-settings);
+  font-size: var(--kilo-font-size-12);
+  line-height: var(--line-height-large);
+}
+
+[data-component="shell-expanded-shell"] {
+  background: var(--shell-bg);
+}
+
+[data-slot="shell-expanded-body"] {
+  display: flex;
+  flex-direction: column;
+}
+
+[data-slot="shell-expanded-top"] {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 10px 12px;
+  background: #f5f5f5;
+  border-bottom: 1px solid var(--shell-border);
+}
+
+[data-slot="shell-expanded-command"] {
+  flex: 1;
+  min-width: 0;
+  font-family: var(--font-family-mono);
+  font-feature-settings: var(--font-family-mono--font-feature-settings);
+  font-size: var(--kilo-font-size-12);
+  line-height: var(--line-height-large);
+  color: var(--text-base);
+  word-break: break-word;
+}
+
+[data-slot="shell-expanded-actions"] {
+  flex-shrink: 0;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+[data-slot="shell-expanded-top"]:hover [data-slot="shell-expanded-actions"],
+[data-slot="shell-expanded-top"]:focus-within [data-slot="shell-expanded-actions"] {
+  opacity: 1;
+}
+
+[data-slot="shell-expanded-divider"] {
+  height: 0;
+  border-top: 1px dashed var(--shell-border);
+}
+
+[data-component="shell-expanded-output"] {
+  padding: 12px;
+  background: var(--shell-bg);
+  font-family: var(--font-family-mono);
+  font-feature-settings: var(--font-family-mono--font-feature-settings);
+  font-size: var(--kilo-font-size-12);
+  line-height: var(--line-height-large);
+  color: var(--text-base);
+  overflow: auto;
+  max-height: 240px;
+}
+
+[data-component="shell-expanded-output"] .shiki {
+  margin: 0;
+  padding: 0;
+  background: transparent !important;
+}
+
+[data-component="shell-expanded-output"] .shiki code,
+[data-component="shell-expanded-output"] [data-slot="shell-expanded-pre"] code {
+  font-family: var(--font-family-mono);
+  font-feature-settings: var(--font-family-mono--font-feature-settings);
+  font-size: var(--kilo-font-size-12);
+  line-height: var(--line-height-large);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  background: transparent;
+}

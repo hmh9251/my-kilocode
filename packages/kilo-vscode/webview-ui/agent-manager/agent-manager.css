@@ -607,20 +607,20 @@ button.am-section-toggle:hover .am-section-label {
 }
 
 .am-run-badge[data-run-state="running"] {
-  --am-run-accent: var(--vscode-testing-iconPassed, #34d399);
+  --am-run-accent: var(--vscode-testing-iconPassed, var(--surface-success-strong, var(--vscode-charts-green, #34d399)));
   animation: am-run-pulse 1.5s ease-in-out infinite;
 }
 
 .am-run-badge[data-run-state="stopping"] {
-  --am-run-accent: #fbbf24;
+  --am-run-accent: var(--surface-warning-strong, var(--vscode-charts-yellow, #fbbf24));
 }
 
 .am-run-badge[data-run-state="success"] {
-  --am-run-accent: var(--vscode-testing-iconPassed, #34d399);
+  --am-run-accent: var(--vscode-testing-iconPassed, var(--surface-success-strong, var(--vscode-charts-green, #34d399)));
 }
 
 .am-run-badge[data-run-state="error"] {
-  --am-run-accent: #f87171;
+  --am-run-accent: var(--surface-critical-strong, var(--vscode-charts-red, #f87171));
 }
 
 @keyframes am-run-pulse {
@@ -662,7 +662,7 @@ button.am-section-toggle:hover .am-section-label {
 /* Green accent when running — uses VS Code's standard green token */
 .am-run-active,
 .am-run-active [data-component="icon"] {
-  color: var(--vscode-testing-iconPassed, #34d399) !important;
+  color: var(--vscode-testing-iconPassed, var(--surface-success-strong, var(--vscode-charts-green, #34d399))) !important;
 }
 
 .am-stat-files {
@@ -670,11 +670,11 @@ button.am-section-toggle:hover .am-section-label {
 }
 
 .am-stat-additions {
-  color: #34d399;
+  color: var(--surface-success-strong, var(--vscode-charts-green, #34d399));
 }
 
 .am-stat-deletions {
-  color: #f87171;
+  color: var(--surface-critical-strong, var(--vscode-charts-red, #f87171));
 }
 
 /* PR pill badge — second row inside am-wt-row2.
@@ -713,13 +713,13 @@ button.am-section-toggle:hover .am-section-label {
 /* Status icon overlaid on the badge — colored by CI/review result, independent
    of the badge's PR-state accent color. */
 .am-pr-badge-status[data-status="failure"] {
-  color: #ef4444;
+  color: var(--surface-critical-strong, var(--vscode-charts-red, #ef4444));
 }
 .am-pr-badge-status[data-status="changes"] {
-  color: #fbbf24;
+  color: var(--surface-warning-strong, var(--vscode-charts-yellow, #fbbf24));
 }
 .am-pr-badge-status[data-status="approved"] {
-  color: #34d399;
+  color: var(--surface-success-strong, var(--vscode-charts-green, #34d399));
 }
 
 /* Checks still running — pulse the whole amber badge. */
@@ -772,31 +772,31 @@ button.am-section-toggle:hover .am-section-label {
 }
 
 .am-worktree-item-active .am-stat-additions {
-  color: #6ee7b7;
+  color: var(--surface-success-strong, var(--vscode-charts-green, #6ee7b7));
 }
 
 .am-worktree-item-active .am-stat-deletions {
-  color: #fca5a5;
+  color: var(--surface-critical-strong, var(--vscode-charts-red, #fca5a5));
 }
 
 .am-worktree-commits {
-  color: #34d399;
+  color: var(--surface-success-strong, var(--vscode-charts-green, #34d399));
 }
 
 .am-worktree-behind {
-  color: #f87171;
+  color: var(--surface-critical-strong, var(--vscode-charts-red, #f87171));
 }
 
 .am-worktree-item-active .am-worktree-commits {
-  color: #6ee7b7;
+  color: var(--surface-success-strong, var(--vscode-charts-green, #6ee7b7));
 }
 
 .am-worktree-item-active .am-worktree-behind {
-  color: #fca5a5;
+  color: var(--surface-critical-strong, var(--vscode-charts-red, #fca5a5));
 }
 
 .am-local-item-active .am-worktree-behind {
-  color: #fca5a5;
+  color: var(--surface-critical-strong, var(--vscode-charts-red, #fca5a5));
 }
 
 .am-local-item:hover .am-worktree-stats,
@@ -1592,7 +1592,7 @@ body.am-wt-dragging-active * {
 }
 
 .am-sidebar-search-status {
-  color: #fbbf24;
+  color: var(--surface-warning-strong, var(--vscode-charts-yellow, #fbbf24));
   text-transform: uppercase;
 }
 
@@ -1707,11 +1707,11 @@ body.am-wt-dragging-active * {
 }
 
 .am-diff-toggle-btn.am-tab-diff-btn-active .am-stat-additions {
-  color: #6ee7b7;
+  color: var(--surface-success-strong, var(--vscode-charts-green, #6ee7b7));
 }
 
 .am-diff-toggle-btn.am-tab-diff-btn-active .am-stat-deletions {
-  color: #fca5a5;
+  color: var(--surface-critical-strong, var(--vscode-charts-red, #fca5a5));
 }
 
 .am-tab-diff-btn-active {

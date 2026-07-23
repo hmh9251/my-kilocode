@@ -181,8 +181,8 @@
         "title": "Open in Tab",
         "category": "Kilo Code",
         "icon": {
-          "light": "assets/icons/kilo-light.svg",
-          "dark": "assets/icons/kilo-dark.svg"
+          "light": "assets/icons/kilo-light.png",
+          "dark": "assets/icons/kilo-dark.png"
         }
       },
       {
@@ -369,8 +369,8 @@
         "title": "Generate Commit Message",
         "category": "Kilo Code",
         "icon": {
-          "light": "assets/icons/kilo-light.svg",
-          "dark": "assets/icons/kilo-dark.svg"
+          "light": "assets/icons/kilo-light.png",
+          "dark": "assets/icons/kilo-dark.png"
         }
       },
       {

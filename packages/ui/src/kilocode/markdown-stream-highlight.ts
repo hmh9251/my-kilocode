@@ -1,6 +1,7 @@
 import { getSharedHighlighter } from "@pierre/diffs"
 import { bundledLanguages, type BundledLanguage } from "shiki"
 import { fnv1a } from "../context/marked"
+import { ensureKiloMarkdownTheme, KILO_MARKDOWN_THEME } from "./kilo-markdown-theme"
 
 type Job = {
   code: string
@@ -17,12 +18,13 @@ function continues(before: string, after: string) {
 
 async function source(lang: string, code: string) {
   try {
-    const highlighter = await getSharedHighlighter({ themes: ["Kilo"], langs: [] })
+    ensureKiloMarkdownTheme()
+    const highlighter = await getSharedHighlighter({ themes: [KILO_MARKDOWN_THEME], langs: [] })
     const language = lang in bundledLanguages ? lang : "text"
     if (!highlighter.getLoadedLanguages().includes(language)) {
       await highlighter.loadLanguage(language as BundledLanguage)
     }
-    return highlighter.codeToHtml(code, { lang: language, theme: "Kilo", tabindex: false })
+    return highlighter.codeToHtml(code, { lang: language, theme: KILO_MARKDOWN_THEME, tabindex: false })
   } catch (err) {
     console.warn("Streaming code highlight failed", lang, err)
     return

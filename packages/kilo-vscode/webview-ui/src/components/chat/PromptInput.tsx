@@ -1487,7 +1487,7 @@ export const PromptInput: Component<PromptInputProps> = (props) => {
             fallback={
               <Tooltip value={sendLabel()} placement="top">
                 <Button
-                  variant="ghost"
+                  variant="primary"
                   size="small"
                   onClick={handleSendClick}
                   aria-disabled={!canSend()}

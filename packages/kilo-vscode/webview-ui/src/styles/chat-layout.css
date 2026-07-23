@@ -23,6 +23,25 @@
   --chat-scrollbar-width: 10px;
 }
 
+/* Light theme: cleaner white background */
+body.vscode-light .chat-view,
+body.vscode-light .message-list,
+body.vscode-light .message-list-content {
+  background-color: #ffffff;
+}
+
+/* User message bubble: Naive UI green */
+html[data-theme="kilo-vscode"] [data-component="user-message"] [data-slot="user-message-text"] {
+  background-color: #18a058;
+  color: #ffffff;
+  border-color: transparent;
+}
+
+html[data-theme="kilo-vscode"] [data-component="user-message"] [data-slot="user-message-text"] a,
+html[data-theme="kilo-vscode"] [data-component="user-message"] [data-slot="user-message-text"] [data-highlight="file"] {
+  color: #e6f7ef;
+}
+
 .chat-messages-wrapper {
   position: relative;
   flex: 1;
@@ -82,7 +101,7 @@
   display: block;
   margin: 0 auto 12px;
   border: 1px solid var(--vscode-button-border, transparent);
-  border-radius: 6px;
+  border-radius: var(--radius-md);
   background: var(--vscode-button-secondaryBackground);
   color: var(--vscode-button-secondaryForeground);
   cursor: pointer;
@@ -118,7 +137,7 @@
   height: 100%;
   color: var(--vscode-descriptionForeground);
   text-align: center;
-  padding: 20px;
+  padding: 32px 24px;
   gap: 20px;
 }
 

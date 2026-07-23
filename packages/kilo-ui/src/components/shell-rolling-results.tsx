@@ -1,5 +1,6 @@
 import { createEffect, createMemo, createSignal, onCleanup, onMount, Show } from "solid-js"
 import stripAnsi from "strip-ansi"
+import "./shell-rolling-results.css"
 import type { ToolPart } from "@kilocode/sdk/v2"
 import { useReducedMotion } from "../hooks/use-reduced-motion"
 import { useI18n } from "../context/i18n"

@@ -14,6 +14,7 @@ import { parseFilePath } from "../file-path" // kilocode_change
 import { createSimpleContext } from "./helper"
 import { getSharedHighlighter } from "@pierre/diffs" // kilocode_change
 import { ensureKiloDiffTheme } from "../pierre/kilo-diff-theme" // kilocode_change
+import { ensureKiloMarkdownTheme, KILO_MARKDOWN_THEME } from "../kilocode/kilo-markdown-theme" // kilocode_change
 
 // kilocode_change start: the "Kilo" diff/highlight theme registration moved to
 // ../pierre/kilo-diff-theme so the diff worker pool can register it without
@@ -83,8 +84,9 @@ async function highlightCodeBlocks(html: string): Promise<string> {
   const matches = [...html.matchAll(codeBlockRegex)]
   if (matches.length === 0) return html
 
+  ensureKiloMarkdownTheme()
   const highlighter = await getSharedHighlighter({
-    themes: ["Kilo"],
+    themes: [KILO_MARKDOWN_THEME],
     langs: [],
     preferredHighlighter: "shiki-wasm",
   })
@@ -109,7 +111,7 @@ async function highlightCodeBlocks(html: string): Promise<string> {
 
     const highlighted = highlighter.codeToHtml(code, {
       lang: language,
-      theme: "Kilo",
+      theme: KILO_MARKDOWN_THEME,
       tabindex: false,
     })
     result = result.replace(fullMatch, () => highlighted)
@@ -200,7 +202,8 @@ export async function deferredHighlight(
     return
   }
 
-  const highlighter = await getSharedHighlighter({ themes: ["Kilo"], langs: [] })
+  ensureKiloMarkdownTheme()
+  const highlighter = await getSharedHighlighter({ themes: [KILO_MARKDOWN_THEME], langs: [] })
 
   for (const block of blocks) {
     // Short-circuit if the container is unmounted or the caller cancelled this run
@@ -237,7 +240,7 @@ export async function deferredHighlight(
               resolve()
               return
             }
-            const html = highlighter.codeToHtml(code, { lang: language, theme: "Kilo", tabindex: false })
+            const html = highlighter.codeToHtml(code, { lang: language, theme: KILO_MARKDOWN_THEME, tabindex: false })
             touchHighlightCache(cacheKey, html)
             // Note: data-highlighted is NOT set on `block` here because
             // replaceWithHighlighted replaces the parent <pre> entirely — the

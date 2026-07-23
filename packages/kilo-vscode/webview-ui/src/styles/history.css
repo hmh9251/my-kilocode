@@ -26,16 +26,6 @@
   white-space: nowrap;
 }
 
-body.vscode-light .session-list [data-slot="list-item"][data-active="true"] [data-slot="list-item-description"],
-body.vscode-light .session-list [data-slot="list-item"][data-selected="true"] [data-slot="list-item-description"],
-body.vscode-light .cloud-session-list [data-slot="list-item"][data-active="true"] [data-slot="list-item-description"],
-body.vscode-light
-  .cloud-session-list
-  [data-slot="list-item"][data-selected="true"]
-  [data-slot="list-item-description"] {
-  color: var(--text-on-interactive-base, white);
-}
-
 .session-list .session-row {
   display: flex;
   align-items: center;
@@ -53,19 +43,6 @@ body.vscode-light
   display: flex;
   width: 100%;
   padding: 2px 8px;
-}
-
-body.vscode-light
-  .session-list
-  .session-row:has([data-slot="list-item"][data-active="true"])
-  [data-slot="session-row-action"]
-  [data-slot="icon-svg"],
-body.vscode-light
-  .session-list
-  .session-row:has([data-slot="list-item"][data-selected="true"])
-  [data-slot="session-row-action"]
-  [data-slot="icon-svg"] {
-  color: var(--text-on-interactive-base, white);
 }
 
 .session-list [data-slot="session-row-action"] {
@@ -133,7 +110,7 @@ body.vscode-light
   background: transparent;
   cursor: pointer;
   padding: 3px 10px;
-  border-radius: 4px;
+  border-radius: var(--radius-md);
   font-size: var(--kilo-font-size-12);
   color: var(--vscode-foreground);
   opacity: 0.6;

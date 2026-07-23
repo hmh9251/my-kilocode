@@ -29,12 +29,13 @@
   --font-size-base: var(--kilo-font-size-13);
   --font-size-large: var(--kilo-font-size-16);
 
-  /* Tight border radius (~2px) */
+  /* Border radius scale */
   --radius-xs: 2px;
   --radius-sm: 2px;
-  --radius-md: 2px;
-  --radius-lg: 4px;
-  --radius-xl: 6px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 10px;
+  --radius-2xl: 12px;
 }
 
 /* ===== Interactive cursors ===== */
