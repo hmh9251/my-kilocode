@@ -3,7 +3,7 @@
    ============================================ */
 
 /* Modern dropdown panel with blue accent theme */
-.popup-selector [data-component="popover-content"] {
+.popup-selector[data-component="popover-content"] {
   background: linear-gradient(180deg, #ffffff 0%, #fafbfc 100%);
   color: #1a1a1a;
   border: 1px solid #e5e7eb;
