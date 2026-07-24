@@ -2,57 +2,67 @@
    Model Selector (uses kilo-ui Popover)
    ============================================ */
 
-/* Naive UI-style white dropdown panel */
+/* Modern white dropdown panel */
 .popup-selector [data-component="popover-content"] {
-  background-color: #ffffff;
-  color: #1a1a1a;
-  border-color: #e5e5e5;
-  box-shadow: 0 3px 6px -4px rgba(0, 0, 0, 0.1), 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 9px 28px 8px rgba(0, 0, 0, 0.05);
+  background-color: var(--vscode-editor-background, #ffffff);
+  color: var(--vscode-editor-foreground, #1a1a1a);
+  border-color: var(--border-weak-base, #e5e5e5);
+  border-radius: 12px;
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.04),
+    0 10px 15px -3px rgba(0, 0, 0, 0.08),
+    0 20px 25px -5px rgba(0, 0, 0, 0.04);
+  overflow: hidden;
 }
 
 .popup-selector [data-slot="popover-body"] {
-  padding: 6px;
-  color: #1a1a1a;
+  padding: 8px;
+  color: var(--vscode-editor-foreground, #1a1a1a);
 }
 
 .popup-selector .model-selector-group-label {
-  color: #666666;
+  color: var(--vscode-descriptionForeground, #666666);
   cursor: default;
   pointer-events: none;
   user-select: none;
+  border-radius: 6px;
+  margin: 0 4px;
 }
 
 .popup-selector .model-selector-group-label:hover,
 .popup-selector .model-selector-group-label.selected {
   background: transparent;
-  color: #666666;
+  color: var(--vscode-descriptionForeground, #666666);
 }
 
 .popup-selector .model-selector-group-label--divided {
-  border-top-color: #f0f0f0;
+  border-top-color: var(--border-weak-base, #f0f0f0);
 }
 
 .popup-selector .model-selector-item {
-  color: #1a1a1a;
+  color: var(--vscode-editor-foreground, #1a1a1a);
+  border-radius: 8px;
+  margin: 1px 4px;
+  transition: background 120ms, color 120ms;
 }
 
 .popup-selector .model-selector-item:hover,
 .popup-selector .model-selector-item.selected {
-  background: #f5f5f5;
-  color: #1a1a1a;
+  background: var(--vscode-list-hoverBackground, #f5f5f5);
+  color: var(--vscode-editor-foreground, #1a1a1a);
 }
 
 .popup-selector .model-selector-item.active {
-  background: #e6f7ef;
-  color: #1a1a1a;
+  background: var(--vscode-list-activeSelectionBackground, #e6f0ff);
+  color: var(--vscode-list-activeSelectionForeground, #1a1a1a);
 }
 
 .popup-selector .model-selector-item-provider-tag {
-  color: #888888;
+  color: var(--vscode-descriptionForeground, #888888);
 }
 
 .popup-selector .model-selector-empty {
-  color: #888888;
+  color: var(--vscode-descriptionForeground, #888888);
 }
 
 .popup-selector[data-expanded],
@@ -639,25 +649,26 @@
 }
 
 .thinking-selector-list {
-  min-width: 100px;
+  min-width: 140px;
 }
 
 .thinking-selector-item {
-  padding: 5px 10px;
+  padding: 8px 12px;
+  margin: 2px 4px;
+  border-radius: 8px;
   cursor: pointer;
   font-size: var(--kilo-font-size-11);
+  transition: background 120ms, color 120ms;
 }
 
 .thinking-selector-item:hover {
-  background: var(--surface-interactive-hover, var(--vscode-list-hoverBackground));
+  background: var(--vscode-list-hoverBackground, #f5f5f5);
 }
 
 .thinking-selector-item.selected {
-  background: var(
-    --surface-interactive-active,
-    var(--vscode-list-activeSelectionBackground, var(--vscode-list-hoverBackground))
-  );
-  color: var(--text-on-interactive-base, var(--vscode-list-activeSelectionForeground));
+  background: var(--vscode-list-activeSelectionBackground, #e6f0ff);
+  color: var(--vscode-list-activeSelectionForeground, #1a1a1a);
+  font-weight: 500;
 }
 
 .thinking-selector-item-name {
@@ -683,28 +694,28 @@
 .mode-switcher-item {
   display: flex;
   flex-direction: column;
-  gap: 1px;
-  padding: 5px 10px;
+  gap: 2px;
+  padding: 8px 12px;
+  margin: 2px 4px;
+  border-radius: 8px;
   cursor: pointer;
   font-size: var(--kilo-font-size-12);
+  transition: background 120ms, color 120ms;
 }
 
 .mode-switcher-item:hover {
-  background: var(--surface-interactive-hover, var(--vscode-list-hoverBackground));
+  background: var(--vscode-list-hoverBackground, #f5f5f5);
 }
 
 .mode-switcher-item:focus-visible {
   outline: 1px solid var(--vscode-focusBorder);
   outline-offset: -1px;
-  background: var(--surface-interactive-hover, var(--vscode-list-hoverBackground));
+  background: var(--vscode-list-hoverBackground, #f5f5f5);
 }
 
 .mode-switcher-item.selected {
-  background: var(
-    --surface-interactive-active,
-    var(--vscode-list-activeSelectionBackground, var(--vscode-list-hoverBackground))
-  );
-  color: var(--text-on-interactive-base, var(--vscode-list-activeSelectionForeground));
+  background: var(--vscode-list-activeSelectionBackground, #e6f0ff);
+  color: var(--vscode-list-activeSelectionForeground, #1a1a1a);
 }
 
 .mode-switcher-item-name {
