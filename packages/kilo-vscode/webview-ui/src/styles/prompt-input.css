@@ -445,33 +445,38 @@
     height: auto !important;
     min-height: 22px;
     max-width: 140px;
-    padding: 0 2px !important;
+    padding: 2px 8px !important;
     font-size: var(--kilo-font-size-11);
     line-height: normal;
-    border-radius: 0;
-    background: transparent;
-    border: none;
-    box-shadow: none;
+    border-radius: 999px;
+    background: var(--vscode-editor-background, #ffffff);
+    border: 1px solid var(--border-weak-base, #e5e5e5);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
     opacity: 1;
-    gap: 2px;
+    gap: 4px;
     white-space: nowrap;
-    transition: color 150ms;
+    transition:
+      color 150ms,
+      background 150ms,
+      border-color 150ms,
+      box-shadow 150ms;
     color: var(--text-base, var(--vscode-foreground));
 
     &[data-expanded] {
-      background: transparent !important;
-      background-color: transparent !important;
+      background: var(--vscode-editor-background, #ffffff);
+      border-color: var(--border-focus, var(--vscode-focusBorder, #a855f7));
+      box-shadow: 0 0 0 1px var(--border-focus, var(--vscode-focusBorder, #a855f7));
     }
 
     &:hover:not(:disabled) {
-      background: transparent;
-      background-color: transparent;
-      color: var(--vscode-textLink-foreground, #18a058);
+      background: var(--vscode-list-hoverBackground, #f7f7f7);
+      border-color: var(--border-base, #d0d0d0);
+      color: var(--text-strong, var(--vscode-foreground));
     }
 
     &:focus-visible {
       outline: none;
-      box-shadow: 0 0 0 1px var(--border-focus);
+      box-shadow: 0 0 0 2px var(--border-focus);
     }
 
     /* Truncate long model/mode/variant names */
