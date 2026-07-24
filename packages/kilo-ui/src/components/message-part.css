@@ -762,14 +762,22 @@ html[data-theme="kilo-vscode"] [data-component="reasoning-part"] {
 
   [data-slot="reasoning-content"] {
     padding: 8px 12px 10px;
-    border: 0;
-    border-radius: var(--radius-sm);
-    background: var(--surface-tool-output-base);
+    border: 1px solid #e5e5e5;
+    border-left: 3px solid #a855f7;
+    border-radius: var(--radius-md);
+    background: var(--vscode-editor-background, #ffffff);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
 
     [data-component="markdown"] {
       font-size: var(--kilo-font-size-12);
       line-height: 160%;
     }
+  }
+
+  /* Remove top/bottom fade mask during streaming. */
+  &[data-streaming][data-auto-collapse] [data-slot="reasoning-content"] {
+    mask-image: none;
+    -webkit-mask-image: none;
   }
 }
 
