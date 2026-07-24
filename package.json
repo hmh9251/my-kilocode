@@ -19,6 +19,7 @@
     "sso": "aws sso login --sso-session=opencode --no-browser",
     "test": "echo 'do not run tests from root' && exit 1",
     "extension": "bun --cwd packages/kilo-vscode script/launch.ts",
+    "package:vscode": "powershell -ExecutionPolicy Bypass -File scripts/package-vscode.ps1",
     "dev-setup": "bun run --cwd packages/opencode --conditions=browser src/index.ts dev-setup"
   },
   "workspaces": {
