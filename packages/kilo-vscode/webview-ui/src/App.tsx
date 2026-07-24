@@ -11,7 +11,6 @@ import { File } from "@kilocode/kilo-ui/file"
 import { DataProvider } from "@kilocode/kilo-ui/context/data"
 import { Toast } from "@kilocode/kilo-ui/toast"
 import Settings from "./components/settings/Settings"
-import ProfileView from "./components/profile/ProfileView"
 import { VSCodeProvider, useVSCode } from "./context/vscode"
 import { ServerProvider, useServer } from "./context/server"
 import { ProviderProvider, useProvider } from "./context/provider"
@@ -44,8 +43,8 @@ import { ImageModelsProvider } from "./context/image-models"
 import type { Message as SDKMessage, Part as SDKPart } from "@kilocode/sdk/v2"
 import "./styles/chat.css"
 
-type ViewType = "newTask" | "history" | "profile" | "settings" | "subAgentViewer"
-const VALID_VIEWS = new Set<string>(["newTask", "history", "profile", "settings", "subAgentViewer"])
+type ViewType = "newTask" | "history" | "settings" | "subAgentViewer"
+const VALID_VIEWS = new Set<string>(["newTask", "history", "settings", "subAgentViewer"])
 
 /**
  * Bridge our session store to the DataProvider's expected Data shape.
@@ -256,9 +255,6 @@ const AppContent: Component = () => {
       case "historyButtonClicked":
         setCurrentView("history")
         break
-      case "profileButtonClicked":
-        setCurrentView("profile")
-        break
       case "settingsButtonClicked":
         setCurrentView("settings")
         break
@@ -376,13 +372,6 @@ const AppContent: Component = () => {
             </Match>
             <Match when={currentView() === "history"}>
               <HistoryView onSelectSession={handleSelectSession} onBack={() => setCurrentView("newTask")} />
-            </Match>
-            <Match when={currentView() === "profile"}>
-              <ProfileView
-                profileData={server.profileData()}
-                deviceAuth={server.deviceAuth()}
-                onLogin={server.startLogin}
-              />
             </Match>
             <Match when={currentView() === "settings"}>
               <Settings

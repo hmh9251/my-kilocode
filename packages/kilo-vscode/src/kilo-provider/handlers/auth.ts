@@ -25,53 +25,8 @@ export interface AuthContext {
  * @param getAttempt - Returns the latest attempt counter (may have changed if user cancelled).
  */
 export async function handleLogin(ctx: AuthContext, attempt: number, getAttempt: () => number): Promise<void> {
-  if (!ctx.client) return
-
-  console.log("[Kilo New] KiloProvider: 🔐 Starting login flow...")
-
-  try {
-    const dir = ctx.getWorkspaceDirectory()
-
-    // Step 1: Initiate OAuth authorization
-    const { data: auth } = await ctx.client.provider.oauth.authorize(
-      { providerID: "kilo", method: 0, directory: dir },
-      { throwOnError: true },
-    )
-    console.log("[Kilo New] KiloProvider: 🔐 Got auth URL:", auth.url)
-
-    // Parse code from instructions (format: "Open URL and enter code: ABCD-1234")
-    const match = auth.instructions?.match(/code:\s*(\S+)/i)
-    const code = match ? match[1] : undefined
-
-    // Send device auth details to webview
-    ctx.postMessage({
-      type: "deviceAuthStarted",
-      code,
-      verificationUrl: auth.url,
-      expiresIn: 900, // 15 minutes default
-    })
-
-    // Step 2: Wait for callback (blocks until polling completes)
-    await ctx.client.provider.oauth.callback({ providerID: "kilo", method: 0, directory: dir }, { throwOnError: true })
-
-    // Check if this attempt was cancelled
-    if (attempt !== getAttempt()) return
-
-    console.log("[Kilo New] KiloProvider: 🔐 Login successful")
-
-    await ctx.disposeGlobal()
-
-    // Step 3: Fetch profile and push to webview
-    const { data: profile } = await ctx.client.kilo.profile(undefined, { throwOnError: true })
-    ctx.postMessage({ type: "profileData", data: profile })
-    ctx.postMessage({ type: "deviceAuthComplete" })
-  } catch (error) {
-    if (attempt !== getAttempt()) return
-    ctx.postMessage({
-      type: "deviceAuthFailed",
-      error: getErrorMessage(error) || "Login failed",
-    })
-  }
+  // Login via Kilo Gateway is disabled in this fork.
+  console.log("[Kilo New] KiloProvider: 🔐 Login request ignored (Kilo Gateway login disabled)")
 }
 
 /** Handle logout: remove auth credentials and clear profile. */
