@@ -1,7 +1,7 @@
 {
-  "name": "kilo-code",
-  "displayName": "Kilo Code: AI Coding Agent, Copilot, and Autocomplete",
-  "description": "Open Source AI coding agent that generates code from natural language, automates tasks, and runs terminal commands. Features inline autocomplete, browser automation, automated refactoring, and custom modes for planning, coding, and debugging. Supports 500+ AI models including Claude (Anthropic), Gemini, Grok, GPT, Codex and GLM.",
+  "name": "kilo-code-beautified",
+  "displayName": "Kilo Code 美化版",
+  "description": "Kilo Code 美化版 — 基于开源 AI coding agent Kilo Code 的个人定制版本，优化了 VS Code 界面配色、面板样式和交互体验。支持 500+ AI 模型。",
   "version": "7.4.16",
   "icon": "assets/icons/logo-outline-black.png",
   "galleryBanner": {
@@ -11,7 +11,7 @@
   "publisher": "kilocode",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Kilo-Org/kilocode.git",
+    "url": "https://github.com/hmh9251/my-kilocode.git",
     "directory": "packages/kilo-vscode"
   },
   "engines": {
@@ -19,7 +19,7 @@
   },
   "license": "MIT",
   "author": {
-    "name": "Kilo Code"
+    "name": "Kilo Code 美化版"
   },
   "categories": [
     "AI",
