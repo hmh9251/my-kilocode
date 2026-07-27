@@ -80,7 +80,7 @@
   }
 }
 
-/* History View (unified Local + Cloud tabs) */
+/* History View (unified Local + Cloud + optional Worktree tabs) */
 .history-view {
   display: flex;
   flex-direction: column;
