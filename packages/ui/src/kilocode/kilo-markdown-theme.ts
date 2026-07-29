@@ -1,10 +1,21 @@
 // kilocode_change - new file
-import { registerCustomTheme, RegisteredCustomThemes, type ThemeRegistrationResolved } from "@pierre/diffs"
+import { registerCustomTheme, type ThemeRegistrationResolved } from "@pierre/diffs"
 
 export const KILO_MARKDOWN_THEME = "KiloLight"
 
+const registrations = (() => {
+  const key = Symbol.for("kilocode.ui.kilo-markdown-theme")
+  const existing = Reflect.get(globalThis, key)
+  if (existing instanceof WeakSet) return existing as WeakSet<typeof registerCustomTheme>
+
+  const value = new WeakSet<typeof registerCustomTheme>()
+  Reflect.set(globalThis, key, value)
+  return value
+})()
+
 export function ensureKiloMarkdownTheme(): void {
-  if (RegisteredCustomThemes.has(KILO_MARKDOWN_THEME)) return
+  if (registrations.has(registerCustomTheme)) return
+  registrations.add(registerCustomTheme)
 
   registerCustomTheme(KILO_MARKDOWN_THEME, () => {
     return Promise.resolve({
