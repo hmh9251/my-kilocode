@@ -2,7 +2,7 @@
 "name": "kilo-code-beautified",
   "displayName": "Kilo Code 美化版",
   "description": "Kilo Code 美化版 — 基于开源 AI coding agent Kilo Code 的个人定制版本，优化了 VS Code 界面配色、面板样式和交互体验。支持 500+ AI 模型。",
-  "version": "7.4.17",
+  "version": "7.4.18",
   "icon": "assets/icons/logo-outline-black.png",
   "galleryBanner": {
     "color": "#FFFFFF",
@@ -1188,7 +1188,9 @@
     "test:visual:update": "playwright test --update-snapshots",
     "snapshot:build": "bun script/dev-snapshot.ts build",
     "snapshot:install": "bun script/dev-snapshot.ts install",
-    "extension": "bun script/launch.ts"
+    "extension": "bun script/launch.ts",
+    "extension:isolated": "bun script/launch.ts --isolated",
+    "extension:isolated:clean": "bun script/launch.ts --isolated --clean"
   },
   "devDependencies": {
     "@axe-core/playwright": "4.11.3",
