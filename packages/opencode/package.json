@@ -186,12 +186,10 @@
     "xdg-basedir": "5.1.0",
 "xlsx": "https://cdn.sheetjs.com/xlsx-0.20.3/xlsx-0.20.3.tgz",
     "yargs": "18.0.0",
-    "@ff-labs/fff-bun": "0.9.4",
-    "@opencode-ai/tui": "workspace:*",
-    "@solid-primitives/scheduled": "1.5.2",
-    "@opencode-ai/protocol": "workspace:*",
-    "@opencode-ai/schema": "workspace:*",
-    "@opencode-ai/codemode": "workspace:*"
+    "@opencode-ai/codemode": "workspace:*",
+    "glob": "13.0.5",
+    "partial-json": "0.1.7",
+    "zod": "catalog:"
   },
   "overrides": {
     "drizzle-orm": "catalog:"
