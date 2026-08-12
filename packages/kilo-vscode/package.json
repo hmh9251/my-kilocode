@@ -2,7 +2,7 @@
 "name": "kilo-code-beautified",
   "displayName": "Kilo Code 美化版",
   "description": "Kilo Code 美化版 — 基于开源 AI coding agent Kilo Code 的个人定制版本，优化了 VS Code 界面配色、面板样式和交互体验。支持 500+ AI 模型。",
-  "version": "7.4.20",
+  "version": "7.4.21",
   "icon": "assets/icons/logo-outline-black.png",
   "galleryBanner": {
     "color": "#FFFFFF",
